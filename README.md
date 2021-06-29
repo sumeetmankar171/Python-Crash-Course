@@ -100,18 +100,18 @@ what you expected to happen?):
 
 ``` {.python language="Python"}
 i = i + i 
-    print(i)
+print(i)
 ```
 
 Using variables makes it easier to generalise code:
 
 ``` {.python language="Python"}
 x = 5
-    y = 10
-    z = 20
+y = 10
+z = 20
 
-    volume = x * y * z
-    print(volume)
+volume = x * y * z
+print(volume)
 ```
 
 ## Making and using functions
@@ -151,22 +151,22 @@ behaviours:
 
 ``` {.python language="Python"}
 def volumeOfCuboid(x,y,z):
-        print("X is equal to", x)
-        print("Y is equal to", y)
-        print("Z is equal to", z)
-        print("----")
-        volume = x*y*z
-        print("Volume is":)
-        print(volume)
-        return volume
+    print("X is equal to", x)
+    print("Y is equal to", y)
+    print("Z is equal to", z)
+    print("----")
+    volume = x*y*z
+    print("Volume is":)
+    print(volume)
+    return volume
 
-    volumeOfCuboid(10,20,30)
-    
-    a = 5
-    b = 10
-    c = 2
+volumeOfCuboid(10,20,30)
 
-    volumeOfCuboid(a,b,c)
+a = 5
+b = 10
+c = 2
+
+volumeOfCuboid(a,b,c)
 ```
 
 ## Lists, dictionaries and Loops
@@ -187,10 +187,10 @@ and also add to the list like this, using the \".append\" function:
 
 ``` {.python language="Python"}
 myShoppingList = ['milk', 'bread', 'tofu']
-    print(myShoppingList)
-    print('Opps I forgot to add apples')
-    myShoppingList.append('apples')
-    print(myShoppingList)
+print(myShoppingList)
+print('Opps I forgot to add apples')
+myShoppingList.append('apples')
+print(myShoppingList)
 ```
 
 Lists are ordered and indexed, meaning we can access just a selection if
@@ -199,8 +199,8 @@ we want:
 ``` {.python language="Python"}
 myShoppingList = ['milk', 'bread', 'tofu']
 
-    print("the first thing in my list is")
-    print(myShoppingList[0])
+print("the first thing in my list is")
+print(myShoppingList[0])
 ```
 
 Notice that we begin counting the list at \"0\" and not \"1\".
@@ -212,8 +212,8 @@ named it 'i\" for an example. Also, notice the indentation of the list:
 ``` {.python language="Python"}
 myShoppingList = ['milk', 'bread', 'tofu']
 
-    for i in myShoppingList:
-        print(i)
+for i in myShoppingList:
+    print(i)
 ```
 
 Another kind of list-like structure in Python is a \"dictionary\". It is
@@ -230,10 +230,10 @@ Adding to dictionaries is a little different too:
 ``` {.python language="Python"}
 Ages = {"Ben" : 10, "Spider-man": 34, "Claire": 24}
 
-    print("ahh, we forgot to get Tom's age")
-    Ages['Tom'] = 17
+print("ahh, we forgot to get Tom's age")
+Ages['Tom'] = 17
 
-    print(Ages)
+print(Ages)
 ```
 
 ## Importing libraries Numpy and Matplotlib
@@ -251,8 +251,8 @@ function. The \".\" basically can be thought of as saying \"within\", so
 ``` {.python language="Python"}
 import numpy 
 
-    i = 100 
-    numpy.sqrt(i)
+i = 100 
+numpy.sqrt(i)
 ```
 
 We use numpy a lot, so to make it a little shorter to type we can change
@@ -261,8 +261,8 @@ this to use an alias of \"np\". Look how this example is different:
 ``` {.python language="Python"}
 import numpy as np 
 
-    i = 100 
-    np.sqrt(i)
+i = 100 
+np.sqrt(i)
 ```
 
 With numpy we can work with what is called an array, these a similar to
@@ -280,14 +280,14 @@ matplotlib:
 
 ``` {.python language="Python"}
 import matplotlib.pyplot as plt 
-    import numpy as np 
+import numpy as np 
 
-    Xs = np.arange(0,10)
-    sin_values = []
-    for v in Xs:
-        sin_values.append(np.sin(v))
+Xs = np.arange(0,10)
+sin_values = []
+for v in Xs:
+    sin_values.append(np.sin(v))
 
-    plt.plot(Xs, sin_values)
+plt.plot(Xs, sin_values)
 ```
 
 **Stop here:** we've just put together a lot of things, and it's very
@@ -300,16 +300,16 @@ clunky, let's do a few things to tidy it up:
 
 ``` {.python language="Python"}
 import matplotlib.pyplot as plt 
-    import numpy as np 
+import numpy as np 
 
-    sin_values = []
-    Xs = np.linspace(0,10, num=1000)
-    for x in Xs:
-        sin_values.append(np.sin(x))
-    plt.plot(Xs, sin_values)
-    plt.xlabel('x')
-    plt.ylabel('sin(x)')
-    plt.grid()
+sin_values = []
+Xs = np.linspace(0,10, num=1000)
+for x in Xs:
+    sin_values.append(np.sin(x))
+plt.plot(Xs, sin_values)
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.grid()
 ```
 
 Once again, look at what we've added and changed. The new function of
@@ -338,26 +338,26 @@ wrong and fix it so that it works?
 
 ``` {.python language="Python"}
 X = 
-    print(X)
+print(X)
 ```
 
 ``` {.python language="Python"}
 X = 10
-    print(X
+print(X
 ```
 
 ``` {.python language="Python"}
 def f(x):
-        print(y)
+    print(y)
 
-    f(10)
+f(10)
 ```
 
 ``` {.python language="Python"}
 a = "a"
-    b = 6
+b = 6
 
-    a+b
+a+b
 ```
 
 # The Iris dataset
@@ -380,10 +380,10 @@ this data set and explore it:
 
 ``` {.python language="Python"}
 import seaborn as sns 
-    import pandas as pd
+import pandas as pd
 
-    df=sns.load_dataset('iris')
-    df.head()
+df=sns.load_dataset('iris')
+df.head()
 ```
 
 Seaborn is a package which makes matplotlib a little quicker to use, and
@@ -484,13 +484,13 @@ model.
 ``` {.python language="Python"}
 from scipy.optimize import curve_fit
 
-    def linear(x,m,b):
-      return m*x+b
-    
-    xdata = df['petal_length']
-    ydata = df['petal_width']
-    
-    pars, cov = curve_fit(f=linear, xdata=xdata, ydata=ydata)
+def linear(x,m,b):
+    return m*x+b
+
+xdata = df['petal_length']
+ydata = df['petal_width']
+
+pars, cov = curve_fit(f=linear, xdata=xdata, ydata=ydata)
 ```
 
 Now, if we take those $m,b$ values we should be able to make a fairly
@@ -501,13 +501,13 @@ so we need to pass it to our linear function correctly:
 ``` {.python language="Python"}
 Y_pred = [ ]
 
-    for x in xdata:
-      Y_pred.append(linear(x, pars[0], pars[1]))
-    
-    plt.scatter(xdata, ydata, c='r')
-    plt.plot(xdata, Y_pred)
-    plt.xlabel('petal_length')
-    plt.ylabel('petal_width')
+for x in xdata:
+    Y_pred.append(linear(x, pars[0], pars[1]))
+
+plt.scatter(xdata, ydata, c='r')
+plt.plot(xdata, Y_pred)
+plt.xlabel('petal_length')
+plt.ylabel('petal_width')
 ```
 
 ![Plot testing our linear model with petal width and length
@@ -519,10 +519,10 @@ determination](https://en.wikipedia.org/wiki/Coefficient_of_determination)):
 
 ``` {.python language="Python"}
 residuals = ydata- linear(xdata, pars[0], pars[1])
-    ss_res = np.sum(residuals**2)
-    ss_tot = np.sum((ydata-np.mean(ydata))**2)
-    r_squared = 1 - (ss_res / ss_tot)
-    print(r_squared)
+ss_res = np.sum(residuals**2)
+ss_tot = np.sum((ydata-np.mean(ydata))**2)
+r_squared = 1 - (ss_res / ss_tot)
+print(r_squared)
 ```
 
 # Test solution
