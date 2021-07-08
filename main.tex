@@ -160,6 +160,7 @@ You may have noticed by calling "myFirstFunction" looks similar to the "print(x)
 We can use functions within functions to make more complicaticated behaviours: 
 
 \begin{lstlisting}[language=Python]
+
     def volumeOfCuboid(x,y,z):
         print("X is equal to", x)
         print("Y is equal to", y)
@@ -186,9 +187,9 @@ So far we have used small variables such as $x=10$, but often we want to work wi
 We can make a basic list like this:
 
 \begin{lstlisting}[language=Python]
+
     myShoppingList = ['milk', 'bread', 'tofu']
     print(myShoppingList)
-
 \end{lstlisting}
 
 and also add to the list like this, using the ".append" function:
@@ -450,10 +451,10 @@ We're still thinking quite small scale with this figure, so let's take a look at
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/ssIM5.png}
+    \includegraphics[width=0.9\textwidth]{figures/ssIM5.png}
     \caption{Pairplot of Iris data set features}
 \end{figure}
-
+\clearpage
 \subsection{Statistical testing} 
 
 Often, you will just want to know if "A is different from B", in Python this is fairly straight-forward. However, first you need to decide which test to do on your data to give the most appropriate results. Examples given here are heavily inspired by a great article which can be found here: \href{https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/}{https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/}
@@ -462,8 +463,43 @@ Often, you will just want to know if "A is different from B", in Python this is 
 
 The Shapiro-Wilk test will allow you to determine if your data fits a Normal distribution. Thus, our null hypothesis becomes "our data has a normal distribution". 
 
+\begin{lstlisting}[language=Python]
+    from scipy import stats
+    setosa = df['species'] == 'setosa'
+    setosa_sepal_length = df[setosa]['sepal_length']
+
+    stats.shapiro(setosa_sepal_length)
+\end{lstlisting}
+
+Check the output of this command. It would suggest that the data are quite normally distributed so we can again visually check if we would like.
+\begin{lstlisting}[language=Python]
+    plt.hist(setosa_sepal_length)
+\end{lstlisting}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/ssIM7.png}
+    \caption{A quick histogram of Setosa's sepal length to verify distribution}
+\end{figure}
+
+Optionally, you can try and repeat this to check another species or another feature to see if it is also normally distributed.
+
 \subsubsection{Student's t-Test}
 
+Having evaluated our data and how 'normal' it is, we can proceed to choosing a statistical test. Most commonly used to biology, regardless of how correct or appropriate it is (\href{https://www.statisticsdonewrong.com}{https://www.statisticsdonewrong.com}, this is an excellent read, very funny and requires little maths experience), is the t-test. More specifically Student's t-test.  
+
+Here, we perform a t-test between the sepal length of setosa and virginica plants.
+
+\begin{lstlisting}[language=Python]
+    from scipy import stats
+    setosa = df['species'] == 'setosa'
+    virginica = df['species'] == 'virginica'
+    setosa_sepal_length = df[setosa]['sepal_length']
+    virginica_sepal_length = df[virginica]['sepal_length']
+    stats.ttest_ind(setosa_sepal_length, virginica_sepal_length, equal_var=False)
+\end{lstlisting}
+
+The first value returned is the t-statistic and the second, the commonly reported, p-value. 
 
 \subsection{Building and testing a simple linear model}
 
