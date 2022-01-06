@@ -1,6 +1,6 @@
 ---
 author:
-- Nathan Hughes
+- Aoife Hughes
 title: Introduction to modelling and programming
 ---
 
